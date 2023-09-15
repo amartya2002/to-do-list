@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- CSS IMPORT -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -29,50 +31,57 @@
         </p>
     </div>
 
+    <!-- NEW TO-DO LIST -->
     <div>
-        <div class="flex flex-col font-semibold px-8 sm:items-center">
-            <p class="text-xl text-gray-400 mt-3">
-                What's on your todo list?
-            </p>
-            <input id="new-todo-form" class="border mt-2 p-2 rounded-lg shadow-sm font-light" type="text"
-                placeholder="e.g. get some milk">
-        </div>
+        <form id="new-todo-form">
+            <div class="flex flex-col font-semibold px-8 sm:items-center">
+                <p class="text-xl text-gray-400 mt-3">
+                    What's on your todo list?
+                </p>
+                <input name="content" class="border mt-2 p-2 rounded-lg shadow-sm font-light" type="text"
+                    placeholder="e.g. get some milk">
+            </div>
 
-        <p class="mt-2 text-center text-gray-400 font-semibold">Pick a category</p>
+            <p class="mt-2 text-center text-gray-400 font-semibold">Pick a category</p>
 
-        <div class="flex justify-center mt-2 space-x-5 sm:space-x-2">
-            <button
-                class="border hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-300 w-40 h-24 shadow-md">
-                <div class="flex flex-col items-center h-full justify-center">
-                    <label>
-                        <input class="hover:cursor-pointer" type="radio" name="category" value="business" />
-                    </label>
-                    <p class="text-white">Business</p>
-                </div>
-            </button>
-            <button
-                class="border hover:scale-105  duration-200 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-300 w-40 h-24 shadow-md">
-                <div class="flex flex-col items-center h-full justify-center">
-                    <label>
-                        <input class="hover:cursor-pointer" type="radio" name="category" value="personal" />
-                    </label>
-                    <p class="text-white">Personal</p>
-                </div>
-            </button>
-        </div>
+            <div class="flex justify-center mt-2 space-x-5 sm:space-x-2">
+                <button
+                    class="border hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-300 w-40 h-24 shadow-md">
+                    <div class="flex flex-col items-center h-full justify-center">
+                        <label>
+                            <input class="hover:cursor-pointer" type="radio" name="category" id="category1"
+                                value="business" />
+                        </label>
+                        <p class="text-white">Business</p>
+                    </div>
+                </button>
+                <button
+                    class="border hover:scale-105  duration-200 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-300 w-40 h-24 shadow-md">
+                    <div class="flex flex-col items-center h-full justify-center">
+                        <label>
+                            <input class="hover:cursor-pointer" type="radio" name="category" id="category2"
+                                value="personal" />
+                        </label>
+                        <p class="text-white">Personal</p>
+                    </div>
+                </button>
+            </div>
 
-        <div class="flex justify-center mt-3">
-            <button
-                class="border sm:hover:scale-105 duration-200 rounded-lg bg-gradient-to-br from-pink-500 to-blue-500 mx-auto w-[85%] sm:w-[20%] sm:h-12">
-                <p class="my-2.5 text-center text-white">Add todo</p>
-            </button>
-        </div>
+            <div class="mt-2 flex justify-center">
+                <input
+                    class="border sm:hover:scale-105 duration-200 rounded-lg bg-gradient-to-br from-pink-500 to-blue-500 mx-auto w-[85%] sm:w-[20%] sm:h-12 text-white"
+                    type="submit" class="my-2.5 text-center text-white hover:cursor-pointer" value="Add todo" />
+            </div>
+        </form>
+
+       
     </div>
 
+    <!-- TO-DO LIST -->
     <div class="mt-4 mx-8 md:mx-auto md:w-[70%] lg:w-[50%]">
         <p class="mb-1.5 sm:text-center text-gray-400 font-semibold">TODO LIST</p>
 
-
+        <!-- <div id="todo-list"></div> -->
         <!-- <div class="border rounded-xl py-3 mb-2 p-2 mx-auto">
             <div class="flex justify-between">
                 <div class="flex items-center space-x-2">
@@ -107,10 +116,7 @@
             </div> -->
     </div>
 
-    </div>
-
-
-
+    <!-- JS IMPORT -->
     <script src="script.js"></script>
 </body>
 
