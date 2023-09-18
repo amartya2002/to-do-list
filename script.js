@@ -11,8 +11,25 @@ window.addEventListener('load', () => {
         localStorage.setItem('username', e.target.value);
     })
 
-    newTodoForm.addEventListener('submit', e=>{
-        e.preventDefault();
+    const buttonBusiness = document.getElementById("radioBusiness");
+    const buttonPersonal = document.getElementById("radioPersonal");
+   
+    buttonBusiness.addEventListener('click', e =>{
+        // Select the input tag of type radio having the Id 'business'
+        const business = document.getElementById("business");
+
+        business.click();
+    })
+   
+    buttonPersonal.addEventListener('click', e =>{
+        // Select the input tag of type radio having the Id 'personal'
+        const business = document.getElementById("personal");
+
+        personal.click();
+    })
+
+    newTodoForm.addEventListener('submit', e =>{
+        e.preventDefault(); // Prevent the default behaviour of the 'submit' behaviour
 
         const todo = {
             content: e.target.elements.content.value,
@@ -25,13 +42,21 @@ window.addEventListener('load', () => {
 
         localStorage.setItem('todos', JSON.stringify(todos));
 
-        // Reset the form
-        e.target.reset();
+        e.target.reset(); // Reset the form
 
-        DisplayTodos()
+        displayTodos();
     })
 
-    DisplayTodos()
+    
+   
 })
 
+// function DisplayTodos() {
+//     const todoList = document.querySelector('#todo-list');
+//     todoList.innerHTML = "";
 
+//     todos.forEach(todo => {
+//         const todoItem = document.createElement('div');
+        
+//     })
+// }
