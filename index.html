@@ -19,112 +19,142 @@
 
 </head>
 
-<body>
-    <div class="flex flex-col font-semibold w-full px-8 sm:items-center pt-10 sm:pt-28">
-        <p class="block sm:text-8xl sm:mb-3 sm:text-center text-5xl">
-            What's up, <input
-                class="block sm:text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-700 to-gray-100"
-                type="text" placeholder="Name here" id="name" />
-        </p>
-        <p
-            class="animate-pulse sm:text-6xl sm:text-center text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-blue-500 text-3xl mt-3">
-            Create a To-Do
-        </p>
-    </div>
+<body class="bg-[#191717]">
+    <main class="animate-fadeInDown">
+        <div class="flex flex-col font-semibold w-full px-8 sm:items-center pt-10 sm:pt-25 mb-4">
+            <p class="block sm:text-8xl sm:mb-3 sm:text-center text-5xl text-white">
+                What's up, <input
+                    class="block sm:text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-700 to-gray-100"
+                    type="text" placeholder="Name here" id="name" />
+            </p>
+            <p
+                class="animate-pulse sm:text-6xl sm:text-center text-transparent bg-clip-text bg-gradient-to-r from-[#46E3BB] to-[#527CAC] text-3xl mt-3">
+                Create a To-Do
+            </p>
+        </div>
 
-    <!-- NEW TO-DO LIST -->
-    <div>
-        <form id="new-todo-form">
-            <div class="flex flex-col font-semibold px-8 sm:items-center">
-                <p class="text-xl text-gray-500 mt-3 mb-1">
-                    What's on your todo list?
-                </p>
-                <svg class="my-1 animate-bounce w-10 h-10 stroke-gray-500" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+        <!-- NEW TO-DO LIST -->
+        <div class="px-5">
+            <div class="bg-[#272829] border-gray-600 max-w-xl mx-auto rounded-xl sm:pt-5 pb-6 shadow-xl">
+                <form id="addBtn">
+                    <div class="flex flex-col font-semibold px-8 sm:items-center">
+                        <p class="text-2xl text-gray-500 mt-3 mb-1">
+                            What's on your todo list?
+                        </p>
+                        <svg class="my-1 animate-bounce w-10 h-10 stroke-gray-500" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
 
-                <input name="content" class="border bg-black p-2 rounded-lg shadow-sm font-light text-white" type="text"
-                    placeholder="e.g. get some milk">
-            </div>
-
-            <p class="mt-2 text-center text-gray-500 font-semibold">Pick a category</p>
-
-            <div class="flex justify-center mt-2 space-x-5 sm:space-x-2">
-                <div id="radioBusiness"
-                    class="border hover:cursor-pointer hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-300 w-40 h-24 shadow-md">
-                    <div class="flex flex-col items-center h-full justify-center">
-                        <label>
-                            <input id="business" class="hover:cursor-pointer" type="radio" name="category" id="category1"
-                                value="business" />
-                        </label>
-                        <p class="text-white">Business</p>
+                        <input name="content" class="border p-2 rounded-lg shadow-sm font-light" type="text"
+                            placeholder="e.g. get some milk">
                     </div>
-                </div>
-                <div id="radioPersonal"
-                    class="border hover:cursor-pointer hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-300 w-40 h-24 shadow-md">
-                    <div class="flex flex-col items-center h-full justify-center">
-                        <label>
-                            <input id="personal" class="hover:cursor-pointer" type="radio" name="category" id="category2"
-                                value="personal" />
-                        </label>
-                        <p class="text-white">Personal</p>
+
+                    <p class="mt-2 text-center text-gray-500 font-semibold">Pick a category</p>
+
+                    <div class="flex justify-center mt-2 space-x-5 sm:space-x-2">
+                        <div id="radioBusiness"
+                            class="hover:cursor-pointer hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-blue-700 to-blue-200 w-40 h-24 shadow-md">
+                            <div class="flex flex-col items-center h-full justify-center">
+                                <label class="hover:cursor-pointer">
+                                    <input id="business"
+                                        class="hover:cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                        type="radio" name="category" id="category1" value="business" />
+                                </label>
+                                <p class="text-white">Business</p>
+                            </div>
+                        </div>
+                        <div id="radioPersonal"
+                            class="hover:cursor-pointer hover:scale-105 duration-200 rounded-2xl bg-gradient-to-br from-yellow-300 to-pink-500 w-40 h-24 shadow-md">
+                            <div class="flex flex-col items-center h-full justify-center">
+                                <label class="hover:cursor-pointer">
+                                    <input id="personal"
+                                        class="hover:cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                        type="radio" name="category" id="category2" value="personal" />
+                                </label>
+                                <p class="text-white">Personal</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <!-- SUBMIT TODO -->
+                    <div class="mt-2 flex justify-center">
+                        <button id="submit"
+                            class="hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 rounded-lg shadow-md bg-gradient-to-br from-pink-500 to-blue-500 mx-auto w-[85%] sm:w-[20%] sm:h-12 text-white">
+                            <input type="submit" class="my-2.5 text-center text-white hover:cursor-pointer"
+                                value="Add todo" />
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
 
-            <!-- SUBMIT TODO -->
-            <div class="mt-2 flex justify-center">
-                <button id="addTodoBtn"
-                    class="border sm:hover:scale-105 duration-200 rounded-lg bg-gradient-to-br from-pink-500 to-blue-500 mx-auto w-[85%] sm:w-[20%] sm:h-12 text-white">
-                    <input type="submit" class="my-2.5 text-center text-white hover:cursor-pointer" value="Add todo" />
-                </button>
+        <!-- TO-DO LIST -->
+        <div class="mt-5 mx-8 md:mx-auto mb-4 md:w-[70%] lg:w-[50%]">
+            <p
+                class="animate-pulse mb-1.5 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#527CAC] to-[#46E3BB] text-3xl mt-3 font-semibold">
+                TODO LIST</p>
+        </div>
+
+        <div class="px-5">
+            <div id="todo-list"
+                class= "bg-[#272829] border-gray-600 max-w-xl mx-auto rounded-xl sm:pt-5 shadow-xl mb-4 p-2 mx-auto">
             </div>
-        </form>
+        </div>
+
+        <div class="flex justify-center space-x-4 mb-4">
+            <svg id="view" class="hover:cursor-pointer w-8 h-8 stroke-gray-500" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+            <button id="clearBtn"
+                class="bg-red-500  hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 text-white px-4 py-2 rounded focus:outline-none transition duration-200 transform sm:hover:scale-105 text-xs">Clear
+                All</button>
+        </div>
 
 
-    </div>
-
-    <!-- TO-DO LIST -->
-    <div class="mt-4 mx-8 md:mx-auto md:w-[70%] lg:w-[50%]">
-        <p class="mb-1.5 text-center text-gray-500 font-semibold">TODO LIST</p>
-
-        <div id="todo-list"></div>
-        <!-- <div class="border rounded-xl py-3 mb-2 p-2 mx-auto">
-            <div class="flex justify-between">
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" />
-                    <p class="text-transparent bg-clip-text bg-gradient-to-br from-purple-500 to-pink-300 ">Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Alias, eius!</p>
-                </div>
-
-                <div class="flex space-x-1.5 items-center">
-                    <button
-                        class="border px-1.5 h-8 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 text-white">Edit</button>
-                    <button
-                        class="border px-1.5 h-8 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 text-white">Delete</button>
+        <div id="deleteModal" class="modal-overlay fixed inset-0 flex items-center justify-center hidden">
+            <div class="modal-bg fixed inset-0 bg-gray-800 opacity-50"></div>
+            <div class="modal-content fixed bg-[#272829] text-white p-6 rounded-lg shadow-xl
+             max-w-sm animate-fadeIn">
+                <p class="text-lg font-semibold mb-3">Are you sure you want to clear all tasks?</p>
+                <div class="flex justify-end">
+                    <button id="cancelDeleteBtn"
+                        class="text-gray-500 hover:text-gray-700 focus:outline-none mr-4 text-white">Cancel</button>
+                    <button id="confirmDeleteBtn"
+                        class="bg-gradient-to-br from-pink-500 to-blue-500 text-white px-4 py-2 rounded focus:outline-none transition duration-300 transform hover:scale-105">Delete</button>
                 </div>
             </div>
         </div>
 
-        <div class="border rounded-xl py-3 mb-2 p-2 mx-auto">
-            <div class="flex justify-between">
+
+        <!-- <div id="todo-list"
+            class="bg-[#272829] border-gray-600 max-w-xl mx-auto rounded-xl sm:pt-5 shadow-xll py-3 mb-2 p-2 mx-auto">
+            <div class="flex justify-between mb-4">
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" />
-                    <p class="text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-300 ">Lorem ipsum
+                    <p class="text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-300 ">Lorem
+                        ipsum
                         dolor sit amet.</p>
                 </div>
 
                 <div class="flex space-x-1.5 items-center">
                     <button
-                        class="border px-1.5 h-8 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 text-white">Edit</button>
-                    <button
-                        class="border px-1.5 h-8 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 text-white">Delete</button>
+                        class="px-1.5 h-8 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 shadow-md text-white">Delete</button>
                 </div>
-            </div> -->
-    </div>
+            </div>
 
+           
+        <div class="flex justify-between">
+                <p class="text-white">Lorem ipsum dolor sit.</p>
+
+                <button class="px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>
+            </div>
+        </div> -->
+
+
+    </main>
     <!-- JS IMPORT -->
     <script src="script.js"></script>
 </body>
