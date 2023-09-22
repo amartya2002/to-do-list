@@ -57,7 +57,12 @@
   text-decoration: dashed;
 }
 
-.rotate-on-click {
+.rotate-on-click1 {
   transform: rotate(180deg);
-  transition-duration: 200ms;
+  transition: transform 0.3s ease; 
+}
+
+.rotate-on-click2 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; 
 }
