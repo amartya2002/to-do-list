@@ -151,5 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelDeleteBtn.addEventListener('click', () => {
         hideModal(); // Hide the modal
     });
+
+    displayTodos();
 });
 
