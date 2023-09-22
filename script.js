@@ -60,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // DIsplay the Todo List
     function displayTodos() {
-        todoList.innerHTML = ` `;
-
         // If todos is empty, add the class 'hidden' to the todoList
         if (todos.length === 0) {
             todoList.classList.add("hidden");
@@ -73,13 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
             todoItem.className = ('flex justify-between mb-2 p-10"');
 
 
-            if (todo.category == "business") {
-                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 max-w-xs [#527CAC]">${todo.content}</p></div>
+            if (todo.category === "business") {
+                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2
+                 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 max-w-xs [#527CAC]">${todo.content}</p></div>
 
                 <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
             } else {
-                todoItem.innerHTML = `<div class=""><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p></div>
+                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p></div>
     
                 <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
@@ -105,10 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (todo.content.trim() !== '') {
-            // const content = todo.content.trim();
             todoList.classList.remove('hidden');
             todos.push(todo);
-
             updateLocalStorage();
         }
 
@@ -154,7 +151,5 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelDeleteBtn.addEventListener('click', () => {
         hideModal(); // Hide the modal
     });
-
-    displayTodos();
 });
 
