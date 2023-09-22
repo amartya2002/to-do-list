@@ -15,13 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('username', e.target.value);
     })
 
-    view.addEventListener('click', () => {
-        view.classList.add("rotate-on-click");
-        // if (todos.length !== 0) {
-        //     todoList.classList.remove('hidden');
-        // }
-        todoList.classList.add('hidden');
-    })
+    // var isRotated = false;
+    // view.addEventListener('click', () => {
+    //     if (view.classList.contains('rotate-on-click1')) {
+    //         todoList.classList.remove("hidden");
+    //             // view.classList.remove('rotate-on-click1');
+    //             view.classList.add('rotate-on-click2');
+    //     } else {
+    //         view.classList.add("rotate-on-click1");
+    //         todoList.classList.add("hidden");
+    //     }
+    //     // if (todos.length !== 0) {
+    //     //     todoList.classList.remove('hidden');
+    //     // }
+    //     // else{
+    //     //     todoList.classList.add('hidden');
+    //     // }
+
+    //     // if (view.classList.contains('rotate-on-click')) {
+    //     //     todoList.classList.add('hidden');
+    //     // }
+    // });
 
     const buttonBusiness = document.getElementById("radioBusiness");
     const buttonPersonal = document.getElementById("radioPersonal");
@@ -56,18 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         todos.forEach((todo, index) => {
             const todoItem = document.createElement('div');
-            todoItem.className = ('flex justify-between mb-4 p-5"');
+            todoItem.className = ('flex justify-between mb-2 p-10"');
 
 
             if (todo.category == "business") {
-                todoItem.innerHTML = `<p class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 [#527CAC]">${todo.content}</p>
+                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 max-w-xs [#527CAC]">${todo.content}</p></div>
 
-                <button data-index="${index}" class="px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
+                <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
             } else {
-                todoItem.innerHTML = `<p class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p>
+                todoItem.innerHTML = `<div class=""><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p></div>
     
-                <button data-index="${index}" class="mb-1 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
+                <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
             }
         });
