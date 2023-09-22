@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.querySelector('#name');
     const addBtn = document.getElementById('addBtn');
-    const view = document.getElementById("view");
+    // const view = document.getElementById("view");
     const clearBtn = document.getElementById("clearBtn");
     const deleteModal = document.getElementById("deleteModal");
     const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nameInput.addEventListener('change', e => {
         localStorage.setItem('username', e.target.value);
     })
+
 
     // var isRotated = false;
     // view.addEventListener('click', () => {
@@ -55,31 +56,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
-
     const todoList = document.querySelector('#todo-list');
 
     // DIsplay the Todo List
     function displayTodos() {
-        // If todos is empty, add the class 'hidden' to the todoList
-        if (todos.length === 0) {
-            todoList.classList.add("hidden");
-            displayTodos();
-        }
-
+        todoList.innerHTML = '';
         todos.forEach((todo, index) => {
             const todoItem = document.createElement('div');
             todoItem.className = ('flex justify-between mb-2 p-10"');
 
-
-            if (todo.category === "business") {
-                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2
-                 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 max-w-xs [#527CAC]">${todo.content}</p></div>
-
+            if (todo.category == "business") {
+                todoItem.innerHTML = `<p class="mt-2
+                 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-200 max-w-xs [#527CAC]">${todo.content}</p>
                 <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
             } else {
-                todoItem.innerHTML = `<div class="flex-grow"><p class="mt-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p></div>
-    
+                todoItem.innerHTML = `<p class="mt-2 
+                text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">${todo.content}</p>
                 <button data-index="${index}" class="mt-2 px-1.5 h-8 rounded-md bg-red-500 hover:opacity-75 sm:hover:opacity-100 sm:hover:scale-105 duration-200 shadow-xl text-white delete-button">Delete</button>`;
                 todoList.appendChild(todoItem);
             }
@@ -104,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (todo.content.trim() !== '') {
-            todoList.classList.remove('hidden');
             todos.push(todo);
             updateLocalStorage();
         }
@@ -114,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayTodos();
     })
 
-    // Delete Todo
+    // Delete a Todo
     todoList.addEventListener('click', (event) => {
         if (event.target.classList.contains('delete-button')) {
             const index = parseInt(event.target.getAttribute('data-index'));
