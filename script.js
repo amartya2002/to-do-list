@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     view.addEventListener('click', () => {
         view.classList.add("rotate-on-click");
+        // if (todos.length !== 0) {
+        //     todoList.classList.remove('hidden');
+        // }
+        todoList.classList.add('hidden');
     })
 
     const buttonBusiness = document.getElementById("radioBusiness");
@@ -37,11 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
     const todoList = document.querySelector('#todo-list');
 
     // DIsplay the Todo List
     function displayTodos() {
         todoList.innerHTML = ` `;
+
+        // If todos is empty, add the class 'hidden' to the todoList
+        if (todos.length === 0) {
+            todoList.classList.add("hidden");
+            displayTodos();
+        }
 
         todos.forEach((todo, index) => {
             const todoItem = document.createElement('div');
@@ -60,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 todoList.appendChild(todoItem);
             }
         });
-        
+
         updateLocalStorage();
     }
 
     function updateLocalStorage() {
         localStorage.setItem('todos', JSON.stringify(todos));
-      }
+    }
 
     // Submit Todo
     addBtn.addEventListener('submit', e => {
@@ -81,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (todo.content.trim() !== '') {
             // const content = todo.content.trim();
-            // todoList.classList.remove('hidden');
+            todoList.classList.remove('hidden');
             todos.push(todo);
 
             updateLocalStorage();
@@ -97,27 +108,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('delete-button')) {
             const index = parseInt(event.target.getAttribute('data-index'));
             todos.splice(index, 1);
+            updateLocalStorage();
             displayTodos();
         }
     });
 
-    // if(todos == []){
-    //     todoList.classList.add("hidden");
-    //     displayTodos();
-    // }
-
-    clearBtn.addEventListener('click', () => {
+    // Function to display the modal
+    function showModal() {
         deleteModal.classList.remove('hidden');
+    }
+
+    // Function to hide the modal
+    function hideModal() {
+        deleteModal.classList.add('hidden');
+    }
+
+    // Event listener to show the modal when clicking the "Clear" button
+    clearBtn.addEventListener('click', () => {
+        showModal();
     });
 
+    // Event listener to confirm and delete all to-dos
     confirmDeleteBtn.addEventListener('click', () => {
-        todos = [];
-        displayTodos();
-        deleteModal.classList.add('hidden');
+        todos.length = 0; // Clear the todos array
+        updateLocalStorage();
+        hideModal(); // Hide the modal
+        displayTodos(); // Update the UI
     });
 
+    // Event listener to cancel and hide the modal
     cancelDeleteBtn.addEventListener('click', () => {
-        deleteModal.classList.add('hidden');
+        hideModal(); // Hide the modal
     });
 
     displayTodos();
