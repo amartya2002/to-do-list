@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         todoList.innerHTML = '';
         todos.forEach((todo, index) => {
             const todoItem = document.createElement('div');
-            todoItem.className = ('flex justify-between mb-2 p-10"');
+            todoItem.className = ('animate-fadeInDown flex justify-between mb-2 p-10"');
 
             if (todo.category == "business") {
                 todoItem.innerHTML = `<p class="mt-2
